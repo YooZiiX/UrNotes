@@ -5,6 +5,7 @@ export default function LandingPage() {
   return (
     <div>
       <Header />
+      <div>Hello from ProfilePage!</div>
     </div>
   );
 }

@@ -1,10 +1,11 @@
 import React from "react";
 import { Header } from "../components/Header/Header";
 
-export default function LandingPage() {
+export default function NotesPage() {
   return (
-    <div>
+    <>
       <Header />
-    </div>
+      <div>Hello from NotesPage!</div>
+    </>
   );
 }
