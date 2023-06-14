@@ -19,7 +19,7 @@ export const Header = () => {
               aria-hidden="true"
             >
               Ur<strong>Notes</strong>
-              <span className="text-rose-600 text-lg">.</span>
+              <span className="text-danger text-lg">.</span>
             </span>
           </div>
         </Link>
@@ -39,7 +39,7 @@ export const Header = () => {
             <Link to="/notes">
               <div className="text-sm uppercase font-semibold w-full hover:text-rose-600">
                 <span>Notes</span>
-                <span className="text-rose-600 text-lg">.</span>
+                <span className="text-danger text-lg">.</span>
               </div>
             </Link>
           </li>
@@ -47,7 +47,7 @@ export const Header = () => {
             <Link to="/profile">
               <div className="text-sm uppercase font-semibold w-full hover:text-rose-600">
                 <span>Profile</span>
-                <span className="text-rose-600 text-lg">.</span>
+                <span className="text-danger text-lg">.</span>
               </div>
             </Link>
           </li>
