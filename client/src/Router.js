@@ -11,6 +11,7 @@ export default function Router() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/notes" element={<NotesPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/createnote" element="" />
       </Routes>
     </BrowserRouter>
   );
