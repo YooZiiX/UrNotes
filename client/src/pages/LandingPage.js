@@ -5,10 +5,10 @@ import { Footer } from "../components/Footer/Footer";
 
 export default function LandingPage() {
   return (
-    <div className="w-full">
+    <>
       <Header />
       <Content />
       <Footer />
-    </div>
+    </>
   );
 }

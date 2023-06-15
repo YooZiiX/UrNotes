@@ -140,6 +140,7 @@ module.exports = {
       secondary: "#FF9F1C",
       "secondary-hover": "##F35E29",
       danger: "#E71D36",
+      "danger-hover": "#DF364A",
 
       inherit: colors.inherit,
       current: colors.current,
