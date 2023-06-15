@@ -5,7 +5,7 @@ import ImageBtn from "../../images/menu.svg";
 
 export const Header = () => {
   return (
-    <header className="bg-white z-50 fixed top-0 w-full shadow">
+    <header className="bg-white z-50 sticky top-0 w-full shadow">
       <nav className="bg-white max-w-5xl mx-auto font-primary p-6 flex items-center justify-between">
         <Link to="/">
           <div className="flex">

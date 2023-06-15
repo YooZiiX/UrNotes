@@ -1,1 +1,1 @@
-## Notes Application using MERN Stack
+## UrNotes. Application using MERN Stack
