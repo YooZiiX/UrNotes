@@ -45,13 +45,17 @@ export default function CreateNote() {
               <label htmlFor="category" className="">
                 Catégorie
               </label>
-              <input
-                type="text"
+              <select
                 name="category"
                 id="category"
-                autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
-              />
+              >
+                <option disabled>----------</option>
+                <option value="divertissement">Divertissement</option>
+                <option value="professionnel">Professionel</option>
+                <option value="scientifique">Scientifique</option>
+                <option value="technologique">Technologique</option>
+              </select>
             </div>
             <div className="flex justify-center m-2">
               <input
