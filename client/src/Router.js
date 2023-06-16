@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import NotesPage from "./pages/NotesPage";
 import ProfilePage from "./pages/ProfilePage";
-import CreateNote from "./pages/CreateNote";
+import CreateNote from "./pages/CreateNotePage";
 
 export default function Router() {
   return (
