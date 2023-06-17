@@ -32,7 +32,7 @@ const HeaderRight = ({ isConnected }) => {
       className="w-full absolute top-full left-0 -translate-y-full -z-10 text-gray-800 border-b border-gray-200 flex flex-col items-center md:static md:z-10 md:w-min md:transform-none md:border-none md:flex-row"
     >
       <li className="py-4 md:py-0 md:mr-6">
-        <Link to="/notes">
+        <Link to="/signup">
           <div className="text-sm uppercase font-semibold w-full hover:text-rose-600">
             <span>Inscription</span>
             <span className="text-danger text-lg">.</span>
@@ -40,7 +40,7 @@ const HeaderRight = ({ isConnected }) => {
         </Link>
       </li>
       <li className="py-4 md:py-0 md:mr-6">
-        <Link to="/profile">
+        <Link to="/login">
           <div className="text-sm uppercase font-semibold w-full hover:text-rose-600">
             <span>Connection</span>
             <span className="text-danger text-lg">.</span>
