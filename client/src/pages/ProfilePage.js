@@ -7,10 +7,9 @@ export default function LandingPage() {
   let firstname = "Jérémy";
   let lastname = "Lucas";
   let email = "jeremy.lucas@mines-ales.org";
-  let password;
 
   return (
-    <div>
+    <div className="overflow-auto">
       <Header />
       <Container>
         <div className="w-full flex justify-center m-6">

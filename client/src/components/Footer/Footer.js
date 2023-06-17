@@ -2,8 +2,8 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <div className="bg-white z-50 fixed bottom-1 w-full shadow">
-      <div className="bg-white max-w-5xl mx-auto font-primary flex items-center justify-between">
+    <div className="z-50 fixed bottom-0 -py-1 w-full shadow">
+      <div className="max-w-5xl mx-auto font-primary flex items-center justify-between">
         <div className="text-lg">
           <span>
             Ur<strong>Notes</strong>

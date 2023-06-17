@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import Container from "../components/elements/Container";
+import Note from "../components/elements/Note";
 
 export default function NotesPage() {
   let name = "Jérémy";
   let number = 6;
   return (
-    <>
+    <div className="">
       <Header />
       <Container>
         <div className="w-full flex justify-center items-center m-6">
@@ -17,25 +18,25 @@ export default function NotesPage() {
             <span className="text-danger">:</span>
           </h1>
         </div>
-        <div className="w-full flex justify-center m-6 my-10">
+        <div className="w-full flex justify-center m-6">
           <div className="grid grid-cols-2 gap-4">
             <Link to="#">
-              <div className="">Note 1</div>
+              <Note />
             </Link>
             <Link to="#">
-              <div className="">Note 2</div>
+              <Note />
             </Link>
             <Link to="#">
-              <div className="">Note 3</div>
+              <Note />
             </Link>
             <Link to="#">
-              <div className="">Note 4</div>
+              <Note />
             </Link>
             <Link to="#">
-              <div className="">Note 5</div>
+              <Note />
             </Link>
             <Link to="#">
-              <div className="">Note 6</div>
+              <Note />
             </Link>
           </div>
         </div>
@@ -48,6 +49,6 @@ export default function NotesPage() {
         </div>
       </Container>
       <Footer />
-    </>
+    </div>
   );
 }

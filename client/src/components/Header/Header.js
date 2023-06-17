@@ -52,7 +52,7 @@ const HeaderRight = ({ isConnected }) => {
 };
 
 export const Header = () => {
-  let isConnected = false;
+  let isConnected = true;
 
   return (
     <header className="bg-white z-50 sticky top-0 w-full shadow">
