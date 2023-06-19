@@ -8,7 +8,7 @@ import notes from "../data/notes";
 
 export default function NotesPage() {
   let name = "Jérémy";
-  let number = 6;
+  let number = notes.length;
   return (
     <div className="">
       <Header />
