@@ -32,7 +32,7 @@ export default function CreateNote() {
               <label htmlFor="content" className="text-lg font-bold">
                 Contenu
               </label>
-              <input
+              <textarea
                 type="text"
                 name="content"
                 id="content"
