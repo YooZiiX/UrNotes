@@ -6,6 +6,7 @@ import ProfilePage from "./pages/ProfilePage";
 import CreateNote from "./pages/CreateNotePage";
 import LoginPage from "./pages/LoginPage";
 import Note from "./components/elements/Note";
+import SignupPage from "./pages/SignupPage";
 
 export default function Router() {
   return (
@@ -15,7 +16,7 @@ export default function Router() {
         <Route path="/notes" element={<NotesPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/createnote" element={<CreateNote />} />
-        <Route path="/signup" element="" />
+        <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/dev" element={<Note />} />
       </Routes>
