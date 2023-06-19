@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Container from "../components/elements/Container";
 
-export default function Content() {
+export default function Content({ isConnected }) {
   let name = "Jérémy";
   return (
     <Container>
@@ -14,7 +14,7 @@ export default function Content() {
         </h1>
       </div>
       <div className="w-full flex justify-center m-6">
-        <Link to="/createnote">
+        <Link to={isConnected ? "/createnote" : "/login"}>
           <button className="bg-blue-500 hover:bg-blue-700 rounded-md px-4 py-2 uppercase shadow-md text-white text-xl font-medium animate">
             Créer une nouvelle Note
           </button>

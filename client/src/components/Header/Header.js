@@ -51,9 +51,7 @@ const HeaderRight = ({ isConnected }) => {
   );
 };
 
-export const Header = () => {
-  let isConnected = false;
-
+export const Header = ({ isConnected }) => {
   return (
     <header className="bg-white z-50 sticky top-0 w-full shadow">
       <nav className="bg-white max-w-5xl mx-auto font-primary p-6 flex items-center justify-between">

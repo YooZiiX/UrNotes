@@ -6,8 +6,8 @@ import { Footer } from "../components/Footer/Footer";
 export default function LandingPage() {
   return (
     <>
-      <Header />
-      <Content />
+      <Header isConnected={false} />
+      <Content isConnected={false} />
       <Footer />
     </>
   );
