@@ -50,7 +50,6 @@ export default function CreateNote() {
                 id="category"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
               >
-                <option disabled>----------</option>
                 <option value="divertissement">Divertissement</option>
                 <option value="professionnel">Professionel</option>
                 <option value="scientifique">Scientifique</option>
