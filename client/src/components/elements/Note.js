@@ -1,11 +1,6 @@
 import React from "react";
 
-export default function Note() {
-  let title = "Sed non risus.";
-  let content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-  let category = "Divertissement";
-  let date = "06/04/23";
-  let id = 23;
+export default function Note({ title, content, category, date, id }) {
   return (
     <div className="flex justify-center">
       <div className=" border-2 w-96 p-2 rounded-md">

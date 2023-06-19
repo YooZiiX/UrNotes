@@ -4,6 +4,7 @@ import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import Container from "../components/elements/Container";
 import Note from "../components/elements/Note";
+import notes from "../data/notes";
 
 export default function NotesPage() {
   let name = "Jérémy";
@@ -20,24 +21,17 @@ export default function NotesPage() {
         </div>
         <div className="w-full flex justify-center m-6">
           <div className="grid grid-cols-2 gap-4">
-            <Link to="#">
-              <Note />
-            </Link>
-            <Link to="#">
-              <Note />
-            </Link>
-            <Link to="#">
-              <Note />
-            </Link>
-            <Link to="#">
-              <Note />
-            </Link>
-            <Link to="#">
-              <Note />
-            </Link>
-            <Link to="#">
-              <Note />
-            </Link>
+            {notes.map((note) => (
+              <Link to={`/note/${note._id}`} key={note._id}>
+                <Note
+                  title={note.title}
+                  content={note.content}
+                  category={note.category}
+                  date="19/06/23"
+                  id={note._id}
+                />
+              </Link>
+            ))}
           </div>
         </div>
         <div className="w-full flex justify-center m-6">
