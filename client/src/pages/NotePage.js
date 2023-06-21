@@ -7,7 +7,11 @@ import notes from "../data/notes";
 
 export default function NotePage() {
   const id = useParams().id;
-  console.log(id);
+
+  const deleteHandler = (id) => {
+    if (window.confirm("Es-tu sûre ?")) {
+    }
+  };
 
   return (
     <>
@@ -71,6 +75,7 @@ export default function NotePage() {
               <input
                 type="button"
                 value="Supprimer"
+                onClick={`deleteHandler(${id})`}
                 className="bg-danger hover:bg-danger-hover text-white w-36 m-2 font-primary tracking-widest uppercase cursor-pointer rounded-md animate"
               />
             </div>

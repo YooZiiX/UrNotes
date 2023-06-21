@@ -5,7 +5,7 @@ import NotesPage from "./pages/NotesPage";
 import ProfilePage from "./pages/ProfilePage";
 import CreateNote from "./pages/CreateNotePage";
 import LoginPage from "./pages/LoginPage";
-import Note from "./pages/NotePage";
+import NotePage from "./pages/NotePage";
 import SignupPage from "./pages/SignupPage";
 
 export default function Router() {
@@ -14,12 +14,12 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/notes" element={<NotesPage />} />
-        <Route path="/note/:id" element={<Note />} />
+        <Route path="/note/:id" element={<NotePage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/createnote" element={<CreateNote />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/dev" element={<Note />} />
+        <Route path="/dev" element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
   );
