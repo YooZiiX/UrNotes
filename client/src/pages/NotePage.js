@@ -6,7 +6,8 @@ import { Footer } from "../components/Footer/Footer";
 import notes from "../data/notes";
 
 export default function NotePage() {
-  const id = useParams();
+  const id = useParams().id;
+  console.log(id);
 
   return (
     <>
