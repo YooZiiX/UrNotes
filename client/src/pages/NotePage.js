@@ -34,7 +34,7 @@ export default function NotePage() {
                 id="title"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
-                value={notes.at(id).title}
+                value={notes.find((n) => n._id === id).title}
               />
             </div>
             <div className="">
@@ -47,7 +47,7 @@ export default function NotePage() {
                 id="content"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
-                value={notes.at(id).content}
+                value={notes.find((n) => n._id === id).content}
               />
             </div>
             <div className="text-lg font-bold">
@@ -57,7 +57,7 @@ export default function NotePage() {
               <select
                 name="category"
                 id="category"
-                value={notes.at(id).category}
+                value={notes.find((n) => n._id === id).category}
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
               >
                 <option value="divertissement">Divertissement</option>
