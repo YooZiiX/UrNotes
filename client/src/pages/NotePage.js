@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Container from "../components/elements/Container";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
-import notes from "../data/notes";
+import axios from "axios";
 
 export default function NotePage() {
   const id = useParams().id;
+
+  const [note, setNote] = useState([]);
+
+  const fetchNote = async () => {
+    const { data } = await axios.get(`/notes/${id}`);
+    setNote(data);
+  };
+
+  useEffect(() => {
+    fetchNote();
+  }, []);
+
+  console.log(note);
 
   const deleteHandler = (id) => {
     if (window.confirm("Es-tu sûre ?")) {
@@ -34,7 +47,7 @@ export default function NotePage() {
                 id="title"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
-                value={notes.find((n) => n._id === id).title}
+                value={note.title}
               />
             </div>
             <div className="">
@@ -47,7 +60,7 @@ export default function NotePage() {
                 id="content"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
-                value={notes.find((n) => n._id === id).content}
+                value={note.content}
               />
             </div>
             <div className="text-lg font-bold">
@@ -57,7 +70,7 @@ export default function NotePage() {
               <select
                 name="category"
                 id="category"
-                value={notes.find((n) => n._id === id).category}
+                value={note.category}
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
               >
                 <option value="divertissement">Divertissement</option>

@@ -13,7 +13,7 @@ app.get("/notes", (req, res) => {
 
 app.get("/notes/:id", (req, res) => {
   const note = notes.find((n) => n._id === req.params.id);
-  res.send(note);
+  res.json(note);
 });
 
 const PORT = process.env.PORT || 5000;

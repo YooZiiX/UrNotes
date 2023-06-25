@@ -20,8 +20,6 @@ export default function NotesPage() {
     fetchNotes();
   }, []);
 
-  console.log(notes);
-
   return (
     <div className="">
       <Header />
