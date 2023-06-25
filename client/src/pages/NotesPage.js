@@ -1,21 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import Container from "../components/elements/Container";
 import Note from "../components/elements/Note";
-import notes from "../data/notes";
+import axios from "axios";
 
 export default function NotesPage() {
   let name = "Jérémy";
-  let number = notes.length;
+
+  const [notes, setNotes] = useState([]);
+
+  const fetchNotes = async () => {
+    const { data } = await axios.get("/notes");
+    setNotes(data);
+  };
+
+  useEffect(() => {
+    fetchNotes();
+  }, []);
+
+  console.log(notes);
+
   return (
     <div className="">
       <Header />
       <Container>
         <div className="w-full flex justify-center items-center m-6">
           <h1 className="font-primary text-4xl">
-            {name}, voilà vos {number} <strong>Notes</strong>
+            {name}, voilà vos {notes.length} <strong>Notes</strong>
             <span className="text-danger">:</span>
           </h1>
         </div>
