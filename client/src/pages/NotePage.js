@@ -19,8 +19,6 @@ export default function NotePage() {
     fetchNote();
   }, []);
 
-  console.log(note);
-
   const deleteHandler = (id) => {
     if (window.confirm("Es-tu sûre ?")) {
     }
