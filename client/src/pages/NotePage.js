@@ -11,7 +11,7 @@ export default function NotePage() {
   const [note, setNote] = useState([]);
 
   const fetchNote = async () => {
-    const { data } = await axios.get(`/notes/${id}`);
+    const { data } = await axios.get(`notes/${id}`);
     setNote(data);
   };
 
