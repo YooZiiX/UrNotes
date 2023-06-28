@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    surname: {
+    lastname: {
       type: String,
       required: true,
     },
@@ -24,12 +24,6 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       required: true,
       default: false,
-    },
-    pict: {
-      type: String,
-      required: true,
-      default:
-        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
     },
   },
   {

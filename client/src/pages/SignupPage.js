@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import Container from "../components/elements/Container";
 import { Link } from "react-router-dom";
 
 export default function SignupPage() {
+  const [email, setEmail] = useState("");
+  const [firstname, setFirstame] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState(null);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      console.log(email);
+      setLoading(false);
+    } catch (error) {
+      setError(error.response.data.message);
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="overflow-auto">
       <Header />
@@ -25,9 +46,11 @@ export default function SignupPage() {
                 type="text"
                 name="lastname"
                 id="lastname"
+                value={lastname}
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4 uppercase"
                 placeholder="Doe"
+                onChange={(e) => setLastname(e.target.value)}
               />
             </div>
             <div className="">
@@ -38,9 +61,11 @@ export default function SignupPage() {
                 type="text"
                 name="firstname"
                 id="firstname"
+                value={firstname}
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
                 placeholder="John"
+                onChange={(e) => setFirstame(e.target.value)}
               />
             </div>
             <div className="col-span-2">
@@ -51,9 +76,12 @@ export default function SignupPage() {
                 type="text"
                 name="email"
                 id="email"
+                value={email}
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
                 placeholder="john.doe@mail.com"
+                required
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="">
@@ -64,9 +92,12 @@ export default function SignupPage() {
                 type="password"
                 name="password"
                 id="email"
+                value={password}
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4 uppercase"
                 placeholder="Mot de passe"
+                required
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div className="">
@@ -77,15 +108,19 @@ export default function SignupPage() {
                 type="password"
                 name="confirmation"
                 id="confirmation"
+                value={confirmPassword}
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4 uppercase"
                 placeholder="Confirmation"
+                required
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
             <div className="mx-auto col-span-2">
               <input
                 type="button"
                 value="Valider"
+                onClick={submitHandler}
                 className="bg-blue-500 hover:bg-blue-700 text-white w-36 h-12 font-primary tracking-widest uppercase cursor-pointer rounded-md animate"
               />
             </div>

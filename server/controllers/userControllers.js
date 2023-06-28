@@ -3,7 +3,7 @@ const User = require("../models/userModel");
 const generateToken = require("../utils/generateToken");
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { firstname, surname, email, password, pict } = req.body;
+  const { firstname, lastname, email, password } = req.body;
 
   const userExists = await User.findOne({ email });
   if (userExists) {
@@ -13,20 +13,18 @@ const registerUser = asyncHandler(async (req, res) => {
 
   const user = await User.create({
     firstname,
-    surname,
+    lastname,
     email,
     password,
-    pict,
   });
 
   if (user) {
     res.status(201).json({
       _id: user._id,
       firstname: user.firstname,
-      surname: user.surname,
+      lastname: user.lastname,
       email: user.email,
       isAdmin: user.isAdmin,
-      pict: user.pict,
       token: generateToken(user._id),
     });
     console.log("Added!");
@@ -47,10 +45,9 @@ const authUser = asyncHandler(async (req, res) => {
     res.json({
       _id: user._id,
       firstname: user.firstname,
-      surname: user.surname,
+      lastname: user.lastname,
       email: user.email,
       isAdmin: user.isAdmin,
-      pict: user.pict,
       token: generateToken(user._id),
     });
   } else {
