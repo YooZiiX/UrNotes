@@ -61,6 +61,12 @@ export default function LoginPage() {
             </div>
           </form>
         </div>
+        <div className="w-full flex justify-center">
+          <p className="m-1">Tu es nouveau ici ?</p>
+          <Link to="/login" className="m-1 text-blue-500">
+            <a href="/login">Inscris-toi</a>
+          </Link>
+        </div>
       </Container>
       <Footer />
     </div>

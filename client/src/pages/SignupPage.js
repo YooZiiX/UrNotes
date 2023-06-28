@@ -2,6 +2,7 @@ import React from "react";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import Container from "../components/elements/Container";
+import { Link } from "react-router-dom";
 
 export default function SignupPage() {
   return (
@@ -89,6 +90,12 @@ export default function SignupPage() {
               />
             </div>
           </form>
+        </div>
+        <div className="w-full flex justify-center">
+          <p className="m-1">Tu as déjà un compte ?</p>
+          <Link to="/login" className="m-1 text-blue-500">
+            <a href="/login">Connectes-toi</a>
+          </Link>
         </div>
       </Container>
       <Footer />
