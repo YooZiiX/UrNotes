@@ -53,7 +53,7 @@ export default function SignupPage() {
                 id="email"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
-                placeholder="E-Mail"
+                placeholder="john.doe@mail.com"
               />
             </div>
             <div className="">

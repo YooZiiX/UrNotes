@@ -27,7 +27,7 @@ export default function LoginPage() {
                 id="email"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
-                placeholder="E-Mail"
+                placeholder="john.doe@mail.com"
               />
             </div>
             <div className="col-span-2">
@@ -39,8 +39,8 @@ export default function LoginPage() {
                 name="password"
                 id="email"
                 autoComplete="off"
-                className="focus:border block w-full border border-gray-400 rounded-md p-4 uppercase"
-                placeholder="Mot de passe"
+                className="focus:border block w-full border border-gray-400 rounded-md p-4"
+                placeholder="mypassword123"
               />
             </div>
             <div className="mx-auto">
