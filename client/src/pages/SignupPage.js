@@ -3,6 +3,7 @@ import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import Container from "../components/elements/Container";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -16,13 +17,34 @@ export default function SignupPage() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    try {
-      setLoading(true);
-      console.log(email);
-      setLoading(false);
-    } catch (error) {
-      setError(error.response.data.message);
-      setLoading(false);
+    if (password !== confirmPassword) {
+      setMessage("Passwords don't Match!");
+    } else {
+      setMessage(null);
+      try {
+        const config = {
+          headers: {
+            "Content-type": "application/json",
+          },
+        };
+        setLoading(true);
+        const { data } = await axios.post(
+          "/users",
+          {
+            firstname,
+            lastname,
+            email,
+            password,
+          },
+          config
+        );
+        console.log(data);
+        setLoading(false);
+        localStorage.setItem("userInfo", JSON.stringify(data));
+      } catch (error) {
+        setError(error.response.data.message);
+        setLoading(false);
+      }
     }
   };
 

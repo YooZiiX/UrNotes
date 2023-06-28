@@ -101,6 +101,16 @@ export default function LandingPage() {
             </div>
           </form>
         </div>
+        <div className="w-full flex justify-center">
+          <div
+            onClick={() => {
+              localStorage.removeItem("userInfo");
+            }}
+            className="mx-auto flex justify-center items-center bg-danger hover:bg-danger-hover text-white w-48 h-12 font-primary tracking-widest uppercase cursor-pointer rounded-md animate"
+          >
+            Déconnection
+          </div>
+        </div>
       </Container>
       <Footer />
     </div>
