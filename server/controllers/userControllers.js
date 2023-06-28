@@ -2,7 +2,7 @@ const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, pict } = req.body;
+  const { firstname, surname, email, password, pict } = req.body;
 
   const userExists = await User.findOne({ email });
   if (userExists) {
@@ -11,7 +11,8 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 
   const user = await User.create({
-    name,
+    firstname,
+    surname,
     email,
     password,
     pict,
@@ -20,17 +21,19 @@ const registerUser = asyncHandler(async (req, res) => {
   if (user) {
     res.status(201).json({
       _id: user._id,
-      name: user.name,
+      firstname: user.firstname,
+      surname: user.surname,
       email: user.email,
       isAdmin: user.isAdmin,
       pict: user.pict,
     });
+    console.log("Added!");
   } else {
     res.status(400);
     throw new Error("Error Occured!");
   }
 
-  res.json({ name, email });
+  res.json({ firstname, email });
 });
 
 const authUser = asyncHandler(async (req, res) => {
@@ -41,7 +44,8 @@ const authUser = asyncHandler(async (req, res) => {
   if (user && (await user.matchPassword(password))) {
     res.json({
       _id: user._id,
-      name: user.name,
+      firstname: user.firstname,
+      surname: user.surname,
       email: user.email,
       isAdmin: user.isAdmin,
       pict: user.pict,
