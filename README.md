@@ -2,7 +2,7 @@
 
 ## Technical Stack :
 
-> - [MongoDB](https://www.mongodb.com/) :
-> - [ExpressJS](https://expressjs.com/) :
-> - [ReactJS](https://react.dev/) :
-> - [NodeJS](https://nodejs.org/en) :
+> - [MongoDB](https://www.mongodb.com/) : Document-oriented NoSQL database management system.
+> - [ExpressJS](https://expressjs.com/) : Web application Framework for NodeJS.
+> - [ReactJS](https://react.dev/) : Open-Source JS library for building UIs.
+> - [NodeJS](https://nodejs.org/en) : Open-Source cross-platform JS runtime envirronment.

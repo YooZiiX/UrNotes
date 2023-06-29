@@ -1,12 +1,15 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import Container from "../components/elements/Container";
 
-export default function LandingPage() {
+export default function ProfilePage() {
   let firstname = "Jérémy";
   let lastname = "Lucas";
   let email = "jeremy.lucas@mines-ales.org";
+
+  // const history = useHistory();
 
   return (
     <div className="overflow-auto">
@@ -105,6 +108,7 @@ export default function LandingPage() {
           <div
             onClick={() => {
               localStorage.removeItem("userInfo");
+              // history.push("/");
             }}
             className="mx-auto flex justify-center items-center bg-danger hover:bg-danger-hover text-white w-48 h-12 font-primary tracking-widest uppercase cursor-pointer rounded-md animate"
           >
