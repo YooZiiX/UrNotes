@@ -9,9 +9,10 @@
 
 ### Front-End :
 
-> - [TailwindCSS](https://tailwindcss.com/)
+> - [TailwindCSS](https://tailwindcss.com/) :
+> - [Redux](https://redux.js.org/) :
 
 ### Back-End :
 
-> - [MongoDB](https://www.mongodb.com/)
-> - [Mongoose](https://mongoosejs.com/)
+> - [MongoDB](https://www.mongodb.com/) :
+> - [Mongoose](https://mongoosejs.com/) :
