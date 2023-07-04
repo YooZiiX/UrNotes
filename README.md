@@ -6,3 +6,12 @@
 > - [ExpressJS](https://expressjs.com/) : Web application Framework for NodeJS.
 > - [ReactJS](https://react.dev/) : Open-Source JS library for building UIs.
 > - [NodeJS](https://nodejs.org/en) : Open-Source cross-platform JS runtime envirronment.
+
+### Front-End :
+
+> - [TailwindCSS](https://tailwindcss.com/)
+
+### Back-End :
+
+> - [MongoDB]()
+> - [Mongoose]()
