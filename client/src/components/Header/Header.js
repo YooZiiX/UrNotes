@@ -4,7 +4,7 @@ import ImageSite from "../../images/logo.png";
 import ImageBtn from "../../images/menu.svg";
 
 const HeaderRight = ({ isConnected }) => {
-  return isConnected ? (
+  return window.localStorage.getItem("userInfo") ? (
     <ul
       id="toggled-menu"
       className="w-full absolute top-full left-0 -translate-y-full -z-10 text-gray-800 border-b border-gray-200 flex flex-col items-center md:static md:z-10 md:w-min md:transform-none md:border-none md:flex-row"
