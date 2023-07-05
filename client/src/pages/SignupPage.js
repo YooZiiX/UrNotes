@@ -38,7 +38,6 @@ export default function SignupPage() {
           },
           config
         );
-        console.log(data);
         setLoading(false);
         localStorage.setItem("userInfo", JSON.stringify(data));
       } catch (error) {
