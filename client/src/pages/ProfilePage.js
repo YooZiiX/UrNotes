@@ -1,15 +1,19 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import Container from "../components/elements/Container";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../actions/userActions";
 
 export default function ProfilePage() {
-  let firstname = "Jérémy";
-  let lastname = "Lucas";
-  let email = "jeremy.lucas@mines-ales.org";
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
 
-  // const history = useHistory();
+  const logoutHandler = () => {
+    dispatch(logout());
+    window.location.href = "/";
+  };
 
   return (
     <div className="overflow-auto">
@@ -17,7 +21,7 @@ export default function ProfilePage() {
       <Container>
         <div className="w-full flex justify-center m-6">
           <h1 className="font-primary text-4xl">
-            {firstname}, voilà tes <strong>informations</strong>
+            {}, voilà tes <strong>informations</strong>
             <span className="text-danger">:</span>
           </h1>
         </div>
@@ -33,7 +37,6 @@ export default function ProfilePage() {
                 id="lastname"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4 uppercase"
-                value={lastname}
               />
             </div>
             <div className="">
@@ -46,7 +49,6 @@ export default function ProfilePage() {
                 id="firstname"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
-                value={firstname}
               />
             </div>
             <div className="col-span-2">
@@ -59,7 +61,6 @@ export default function ProfilePage() {
                 id="email"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
-                value={email}
               />
             </div>
             <div className="">
@@ -106,10 +107,7 @@ export default function ProfilePage() {
         </div>
         <div className="w-full flex justify-center">
           <div
-            onClick={() => {
-              localStorage.removeItem("userInfo");
-              window.location.href = "/";
-            }}
+            onClick={logoutHandler}
             className="mx-auto flex justify-center items-center bg-danger hover:bg-danger-hover text-white w-48 h-12 font-primary tracking-widest uppercase cursor-pointer rounded-md animate"
           >
             Déconnection

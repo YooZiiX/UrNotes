@@ -14,7 +14,11 @@ export default function Content({ isConnected }) {
         </h1>
       </div>
       <div className="w-full flex justify-center m-6">
-        <Link to={isConnected ? "/createnote" : "/login"}>
+        <Link
+          to={
+            window.localStorage.getItem("userInfo") ? "/createnote" : "/login"
+          }
+        >
           <button className="bg-blue-500 hover:bg-blue-700 rounded-md px-4 py-2 uppercase shadow-md text-white text-xl font-medium animate">
             Créer une nouvelle Note
           </button>
