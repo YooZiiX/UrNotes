@@ -9,6 +9,7 @@ import { login } from "../actions/userActions";
 export default function LoginPage({ history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // let history = useHistory();
 
   const dispatch = useDispatch();
 
@@ -17,7 +18,8 @@ export default function LoginPage({ history }) {
 
   useEffect(() => {
     if (userInfo) {
-      history.push("/notes");
+      window.location.href = "/";
+      // history.push("/");
     }
   }, [history, userInfo]);
 
