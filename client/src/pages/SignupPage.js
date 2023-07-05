@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import Container from "../components/elements/Container";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { register } from "../actions/userActions";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -12,38 +13,25 @@ export default function SignupPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState(null);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const userRegister = useSelector((state) => state.userRegister);
+  const { loading, error, userInfo } = userRegister;
+
+  useEffect(() => {
+    if (userInfo) {
+      window.location.href = "/";
+    }
+  }, [userInfo]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    console.log(lastname);
     if (password !== confirmPassword) {
-      setMessage("Passwords don't Match!");
+      setMessage("Password do not match");
     } else {
-      setMessage(null);
-      try {
-        const config = {
-          headers: {
-            "Content-type": "application/json",
-          },
-        };
-        setLoading(true);
-        const { data } = await axios.post(
-          "/users",
-          {
-            firstname,
-            lastname,
-            email,
-            password,
-          },
-          config
-        );
-        setLoading(false);
-        localStorage.setItem("userInfo", JSON.stringify(data));
-      } catch (error) {
-        setError(error.response.data.message);
-        setLoading(false);
-      }
+      dispatch(register(firstname, lastname, email, password));
     }
   };
 
