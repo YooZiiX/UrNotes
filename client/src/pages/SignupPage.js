@@ -27,7 +27,6 @@ export default function SignupPage() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(firstname, lastname, email, password, confirmPassword);
     if (password !== confirmPassword) {
       setMessage("Password do not match");
     } else {

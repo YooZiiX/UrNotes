@@ -24,7 +24,6 @@ export default function LoginPage({ history }) {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
     dispatch(login(email, password));
   };
 
