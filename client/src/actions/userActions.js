@@ -39,7 +39,7 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
-export const logout = () => (dispatch) => {
+export const logout = () => async (dispatch) => {
   window.localStorage.removeItem("userInfo");
   dispatch({ type: USER_LOGOUT });
 };
@@ -51,7 +51,7 @@ export const register =
 
       const config = {
         headers: {
-          "Content-type": "applcation/json",
+          "Content-type": "application/json",
         },
       };
 

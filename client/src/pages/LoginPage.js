@@ -19,7 +19,6 @@ export default function LoginPage({ history }) {
   useEffect(() => {
     if (userInfo) {
       window.location.href = "/";
-      // history.push("/");
     }
   }, [history, userInfo]);
 
