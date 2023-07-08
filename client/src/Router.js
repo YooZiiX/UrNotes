@@ -15,7 +15,7 @@ export default function Router() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/notes" element={<NotesPage />} />
         <Route path="/note/:id" element={<NotePage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile/:id" element={<ProfilePage />} />
         <Route path="/createnote" element={<CreateNote />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
