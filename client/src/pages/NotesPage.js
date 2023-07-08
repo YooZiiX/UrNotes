@@ -1,24 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import Container from "../components/elements/Container";
 import Note from "../components/elements/Note";
-import axios from "axios";
+import { listNotes } from "../actions/notesActions";
 
 export default function NotesPage() {
-  let name = "Jérémy";
+  const dispatch = useDispatch();
 
-  const [notes, setNotes] = useState([]);
-
-  const fetchNotes = async () => {
-    const { data } = await axios.get("/notes");
-    setNotes(data);
-  };
+  const noteList = useSelector((state) => state.noteList);
+  const { loading, notes, error } = noteList;
 
   useEffect(() => {
-    fetchNotes();
-  }, []);
+    dispatch(listNotes());
+  }, [dispatch]);
 
   return (
     <div className="">
@@ -26,13 +23,13 @@ export default function NotesPage() {
       <Container>
         <div className="w-full flex justify-center items-center m-6">
           <h1 className="font-primary text-4xl">
-            {name}, voilà vos {notes.length} <strong>Notes</strong>
+            Jérémy, voilà vos <strong>Notes</strong>
             <span className="text-danger">:</span>
           </h1>
         </div>
         <div className="w-full flex justify-center m-6">
           <div className="grid grid-cols-2 gap-4">
-            {notes.map((note) => (
+            {notes?.map((note) => (
               <Link to={`/note/${note._id}`} key={note._id}>
                 <Note
                   title={note.title}
