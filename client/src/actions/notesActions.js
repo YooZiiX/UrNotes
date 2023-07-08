@@ -95,8 +95,10 @@ export const updateNote =
       } = getState();
 
       const config = {
-        "Content-type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${userInfo.token}`,
+        },
       };
 
       const { data } = await axios.put(

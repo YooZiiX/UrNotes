@@ -49,10 +49,10 @@ export default function NotePage() {
     setCategory("");
   };
 
-  const deleteHandler = () => {
-    if (window.confirm("Es-tu sûre ?")) {
-    }
-  };
+  // const deleteHandler = () => {
+  //   if (window.confirm("Es-tu sûre ?")) {
+  //   }
+  // };
 
   return (
     <>
@@ -114,13 +114,12 @@ export default function NotePage() {
               <input
                 type="button"
                 value="Modifier"
-                className="bg-blue-500 hover:bg-blue-700 text-white w-36 m-2 font-primary tracking-widest uppercase cursor-pointer rounded-md animate"
                 onClick={updateHandler}
+                className="bg-blue-500 hover:bg-blue-700 text-white w-36 m-2 font-primary tracking-widest uppercase cursor-pointer rounded-md animate"
               />
               <input
                 type="button"
                 value="Supprimer"
-                onClick={`deleteHandler`}
                 className="bg-danger hover:bg-danger-hover text-white w-36 m-2 font-primary tracking-widest uppercase cursor-pointer rounded-md animate"
               />
             </div>
