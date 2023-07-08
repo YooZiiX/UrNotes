@@ -35,7 +35,7 @@ export default function NotesPage() {
         </div>
         <div className="w-full flex justify-center m-6">
           <div className="grid grid-cols-2 gap-4">
-            {notes?.map((note) => (
+            {notes?.reverse().map((note) => (
               <Link to={`/note/${note._id}`} key={note._id}>
                 <Note
                   title={note.title}

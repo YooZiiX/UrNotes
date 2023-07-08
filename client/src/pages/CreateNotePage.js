@@ -3,16 +3,33 @@ import { useDispatch, useSelector } from "react-redux";
 import Container from "../components/elements/Container";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
+import { createNote } from "../actions/notesActions";
 
 export default function CreateNote() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [category, setCategory] = useState("");
 
+  const resetHandler = () => {
+    setTitle("");
+    setContent("");
+    setCategory("");
+  };
+
   const dispatch = useDispatch();
 
   const noteCreate = useSelector((state) => state.noteCreate);
   const { loading, error, note } = noteCreate;
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    if (!title || !content || !category) return;
+    dispatch(createNote(title, content, category));
+
+    resetHandler();
+    window.location.href = "/notes";
+  };
 
   return (
     <>
@@ -36,6 +53,7 @@ export default function CreateNote() {
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
                 placeholder="Sed non risus."
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div className="">
@@ -49,6 +67,7 @@ export default function CreateNote() {
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
                 placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                onChange={(e) => setContent(e.target.value)}
               />
             </div>
             <div className="text-lg font-bold">
@@ -59,6 +78,7 @@ export default function CreateNote() {
                 name="category"
                 id="category"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
+                onChange={(e) => setCategory(e.target.value)}
               >
                 <option value="divertissement">Divertissement</option>
                 <option value="professionnel">Professionel</option>
@@ -70,6 +90,7 @@ export default function CreateNote() {
               <input
                 type="button"
                 value="Créer"
+                onClick={submitHandler}
                 className="bg-blue-500 hover:bg-blue-700 text-white w-36 m-2 font-primary tracking-widest uppercase cursor-pointer rounded-md animate"
               />
               <input
