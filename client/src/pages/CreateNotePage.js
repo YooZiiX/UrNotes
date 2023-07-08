@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Container from "../components/elements/Container";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 
 export default function CreateNote() {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [category, setCategory] = useState("");
+
+  const dispatch = useDispatch();
+
+  const noteCreate = useSelector((state) => state.noteCreate);
+  const { loading, error, note } = noteCreate;
+
   return (
     <>
       <Header />
