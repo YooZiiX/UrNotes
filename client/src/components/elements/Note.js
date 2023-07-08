@@ -16,7 +16,7 @@ export default function Note({ title, content, category, date, id }) {
             <span className="font-medium">Catégorie :</span>{" "}
             <span className="text-lg">{category}</span>
           </div>
-          <div className="flex justify-between text-base italic text-gray-500 py-2">
+          <div className="flex justify-between text-sm italic text-gray-500 py-2">
             <div>Créé le : {date}</div>
             <div>id : {id}</div>
           </div>

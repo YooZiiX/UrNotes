@@ -13,8 +13,14 @@ export default function NotesPage() {
   const noteList = useSelector((state) => state.noteList);
   const { loading, notes, error } = noteList;
 
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
   useEffect(() => {
     dispatch(listNotes());
+    // if (!userInfo) {
+    //   window.location.href = "/";
+    // }
   }, [dispatch]);
 
   return (
@@ -23,7 +29,7 @@ export default function NotesPage() {
       <Container>
         <div className="w-full flex justify-center items-center m-6">
           <h1 className="font-primary text-4xl">
-            Jérémy, voilà vos <strong>Notes</strong>
+            {`${userInfo.firstname}`}, voilà vos <strong>Notes</strong>
             <span className="text-danger">:</span>
           </h1>
         </div>
@@ -35,7 +41,7 @@ export default function NotesPage() {
                   title={note.title}
                   content={note.content}
                   category={note.category}
-                  date="19/06/23"
+                  date={note.createdAt.substring(0, 10)}
                   id={note._id}
                 />
               </Link>

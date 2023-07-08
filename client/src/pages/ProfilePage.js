@@ -21,7 +21,7 @@ export default function ProfilePage() {
       <Container>
         <div className="w-full flex justify-center m-6">
           <h1 className="font-primary text-4xl">
-            {}, voilà tes <strong>informations</strong>
+            {`${userInfo.firstname}`}, voilà tes <strong>informations</strong>
             <span className="text-danger">:</span>
           </h1>
         </div>
@@ -37,6 +37,7 @@ export default function ProfilePage() {
                 id="lastname"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4 uppercase"
+                value={`${userInfo.lastname}`}
               />
             </div>
             <div className="">
@@ -49,6 +50,7 @@ export default function ProfilePage() {
                 id="firstname"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
+                value={`${userInfo.firstname}`}
               />
             </div>
             <div className="col-span-2">
@@ -61,6 +63,7 @@ export default function ProfilePage() {
                 id="email"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
+                value={`${userInfo.email}`}
               />
             </div>
             <div className="">
