@@ -7,7 +7,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { updateNote } from "../actions/notesActions";
 
-export default function NotePage({ match }) {
+export default function NotePage() {
   const { id } = useParams();
 
   const [title, setTitle] = useState();

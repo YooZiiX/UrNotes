@@ -9,15 +9,20 @@ export default function ProfilePage() {
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+  const fixFirstname = `${userInfo.firstname}`;
 
   const [firstname, setFirstname] = useState(`${userInfo.firstname}`);
   const [lastname, setLastname] = useState(`${userInfo.lastname}`);
   const [email, setEmail] = useState(`${userInfo.email}`);
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const resetHandler = () => {
     setFirstname(`${userInfo.firstname}`);
     setLastname(`${userInfo.lastname}`);
     setEmail(`${userInfo.email}`);
+    setPassword("");
+    setConfirmPassword("");
   };
 
   const logoutHandler = () => {
@@ -31,7 +36,7 @@ export default function ProfilePage() {
       <Container>
         <div className="w-full flex justify-center m-6">
           <h1 className="font-primary text-4xl">
-            {firstname}, voilà tes <strong>informations</strong>
+            {fixFirstname}, voilà tes <strong>informations</strong>
             <span className="text-danger">:</span>
           </h1>
         </div>
@@ -48,6 +53,7 @@ export default function ProfilePage() {
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4 uppercase"
                 value={lastname}
+                onChange={(e) => setLastname(e.target.value)}
               />
             </div>
             <div className="">
@@ -61,6 +67,7 @@ export default function ProfilePage() {
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
                 value={firstname}
+                onChange={(e) => setFirstname(e.target.value)}
               />
             </div>
             <div className="col-span-2">
@@ -74,6 +81,7 @@ export default function ProfilePage() {
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
                 value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="">
@@ -87,6 +95,8 @@ export default function ProfilePage() {
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4 uppercase"
                 placeholder="Mot de passe"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div className="">
@@ -100,6 +110,8 @@ export default function ProfilePage() {
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4 uppercase"
                 placeholder="Confirmation"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
             <div className="mx-auto">
