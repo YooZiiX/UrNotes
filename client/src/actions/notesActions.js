@@ -6,6 +6,8 @@ import {
   NOTES_CREATE_REQUEST,
   NOTES_CREATE_SUCCESS,
   NOTES_CREATE_FAIL,
+  NOTES_UPDATE_REQUEST,
+  NOTES_UPDATE_SUCCESS,
 } from "../constants/notesConstants";
 
 export const listNotes = () => async (dispatch, getState) => {
@@ -71,6 +73,38 @@ export const createNote =
       );
 
       dispatch({ type: NOTES_CREATE_SUCCESS, payload: data });
+    } catch (error) {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.response;
+      dispatch({ type: NOTES_CREATE_FAIL, payload: message });
+    }
+  };
+
+export const updateNote =
+  (id, title, content, category) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: NOTES_UPDATE_REQUEST,
+      });
+
+      const {
+        userLogin: { userInfo },
+      } = getState();
+
+      const config = {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      };
+
+      const { data } = await axios.put(
+        `/api/notes/${id}`,
+        { title, content, category },
+        config
+      );
+
+      dispatch({ type: NOTES_UPDATE_SUCCESS, payload: data });
     } catch (error) {
       const message =
         error.response && error.response.data.message

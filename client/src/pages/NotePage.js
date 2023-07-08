@@ -4,22 +4,52 @@ import Container from "../components/elements/Container";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { updateNote } from "../actions/notesActions";
 
-export default function NotePage() {
-  const id = useParams().id;
+export default function NotePage({ match }) {
+  const { id } = useParams();
 
-  const [note, setNote] = useState([]);
+  const [title, setTitle] = useState();
+  const [content, setContent] = useState();
+  const [category, setCategory] = useState();
+  const [date, setDate] = useState("");
 
-  const fetchNote = async () => {
-    const { data } = await axios.get(`/note/${id}`);
-    setNote(data);
-  };
+  const dispatch = useDispatch();
+
+  const noteUpdate = useSelector((state) => state.noteUpdate);
+  const { loading, error } = noteUpdate;
 
   useEffect(() => {
-    fetchNote();
-  }, []);
+    const fetching = async () => {
+      const { data } = await axios.get(`/api/notes/${id}`);
 
-  const deleteHandler = (id) => {
+      setTitle(data.title);
+      setContent(data.content);
+      setCategory(data.category);
+      setDate(data.updatedAt);
+    };
+
+    fetching();
+  }, [id, date]);
+
+  const updateHandler = (e) => {
+    e.preventDefault();
+
+    if (!title || !content || !category) return;
+    dispatch(updateNote(id, title, content, category));
+
+    resetHandler();
+    window.location.href = "/notes";
+  };
+
+  const resetHandler = () => {
+    setTitle("");
+    setContent("");
+    setCategory("");
+  };
+
+  const deleteHandler = () => {
     if (window.confirm("Es-tu sûre ?")) {
     }
   };
@@ -45,7 +75,8 @@ export default function NotePage() {
                 id="title"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
-                value={note.title}
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div className="">
@@ -58,7 +89,8 @@ export default function NotePage() {
                 id="content"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
-                value={note.content}
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
               />
             </div>
             <div className="text-lg font-bold">
@@ -68,8 +100,9 @@ export default function NotePage() {
               <select
                 name="category"
                 id="category"
-                value={note.category}
+                value={category}
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
+                onChange={(e) => setCategory(e.target.value)}
               >
                 <option value="divertissement">Divertissement</option>
                 <option value="professionnel">Professionel</option>
@@ -82,11 +115,12 @@ export default function NotePage() {
                 type="button"
                 value="Modifier"
                 className="bg-blue-500 hover:bg-blue-700 text-white w-36 m-2 font-primary tracking-widest uppercase cursor-pointer rounded-md animate"
+                onClick={updateHandler}
               />
               <input
                 type="button"
                 value="Supprimer"
-                onClick={`deleteHandler(${id})`}
+                onClick={`deleteHandler`}
                 className="bg-danger hover:bg-danger-hover text-white w-36 m-2 font-primary tracking-widest uppercase cursor-pointer rounded-md animate"
               />
             </div>
