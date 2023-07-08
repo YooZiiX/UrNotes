@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Header } from "../components/Header/Header";
@@ -8,6 +8,8 @@ import Note from "../components/elements/Note";
 import { listNotes } from "../actions/notesActions";
 
 export default function NotesPage() {
+  const [search, setSearch] = useState("");
+
   const dispatch = useDispatch();
 
   const noteList = useSelector((state) => state.noteList);
@@ -39,19 +41,37 @@ export default function NotesPage() {
             <span className="text-danger">:</span>
           </h1>
         </div>
+        <div className="flex justify-center m-6">
+          <form>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              autoComplete="off"
+              className="focus:border block w-96 border border-gray-400 rounded-md p-4"
+              placeholder="Recherche"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </form>
+        </div>
         <div className="w-full flex justify-center m-6">
           <div className="grid grid-cols-2 gap-4">
-            {notes?.reverse().map((note) => (
-              <Link to={`/note/${note._id}`} key={note._id}>
-                <Note
-                  title={note.title}
-                  content={note.content}
-                  category={note.category}
-                  date={note.createdAt.substring(0, 10)}
-                  id={note._id}
-                />
-              </Link>
-            ))}
+            {notes
+              ?.reverse()
+              .filter((filteredNotes) =>
+                filteredNotes.title.toLowerCase().includes(search.toLowerCase())
+              )
+              .map((note) => (
+                <Link to={`/note/${note._id}`} key={note._id}>
+                  <Note
+                    title={note.title}
+                    content={note.content}
+                    category={note.category}
+                    date={note.createdAt.substring(0, 10)}
+                    id={note._id}
+                  />
+                </Link>
+              ))}
           </div>
         </div>
         <div className="w-full flex justify-center m-6">
