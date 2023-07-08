@@ -19,12 +19,15 @@ export default function NotesPage() {
   const noteCreate = useSelector((state) => state.noteCreate);
   const { success: successCreate } = noteCreate;
 
+  const noteUpdate = useSelector((state) => state.noteUpdate);
+  const { success: successUpdate } = noteUpdate;
+
   useEffect(() => {
     dispatch(listNotes());
     if (!userInfo) {
       window.location.href = "/";
     }
-  }, [dispatch, successCreate, userInfo]);
+  }, [dispatch, successCreate, successUpdate, userInfo]);
 
   return (
     <div className="">

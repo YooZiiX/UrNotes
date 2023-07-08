@@ -8,6 +8,7 @@ import {
   NOTES_CREATE_FAIL,
   NOTES_UPDATE_REQUEST,
   NOTES_UPDATE_SUCCESS,
+  NOTES_UPDATE_FAIL,
 } from "../constants/notesConstants";
 
 export const listNotes = () => async (dispatch, getState) => {
@@ -110,6 +111,6 @@ export const updateNote =
         error.response && error.response.data.message
           ? error.response.data.message
           : error.response;
-      dispatch({ type: NOTES_CREATE_FAIL, payload: message });
+      dispatch({ type: NOTES_UPDATE_FAIL, payload: message });
     }
   };
