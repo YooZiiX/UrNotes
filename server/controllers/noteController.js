@@ -58,7 +58,7 @@ const deleteNote = asyncHandler(async (req, res) => {
     throw new Error("You can't perform this action");
   }
   if (note) {
-    await note.remove;
+    await note.deleteOne();
     res.json({ message: "Note removed" });
   } else {
     res.status(404);

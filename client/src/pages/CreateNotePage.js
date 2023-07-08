@@ -80,10 +80,11 @@ export default function CreateNote() {
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <option value="divertissement">Divertissement</option>
-                <option value="professionnel">Professionel</option>
-                <option value="scientifique">Scientifique</option>
-                <option value="technologique">Technologique</option>
+                <option value="">--------</option>
+                <option value="Divertissement">Divertissement</option>
+                <option value="Professionnel">Professionel</option>
+                <option value="Scientifique">Scientifique</option>
+                <option value="Technologique">Technologique</option>
               </select>
             </div>
             <div className="flex justify-center m-2">

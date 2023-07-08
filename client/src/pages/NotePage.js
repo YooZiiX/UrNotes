@@ -5,7 +5,7 @@ import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { updateNote } from "../actions/notesActions";
+import { deleteNote, updateNote } from "../actions/notesActions";
 
 export default function NotePage() {
   const { id } = useParams();
@@ -18,7 +18,10 @@ export default function NotePage() {
   const dispatch = useDispatch();
 
   const noteUpdate = useSelector((state) => state.noteUpdate);
-  const { loading, error } = noteUpdate;
+  const { success: updateSuccess } = noteUpdate;
+
+  const noteDelete = useSelector((state) => state.noteDelete);
+  const { loading: deleteLoading, error: deleteError, success } = noteDelete;
 
   useEffect(() => {
     const fetching = async () => {
@@ -49,10 +52,12 @@ export default function NotePage() {
     setCategory("");
   };
 
-  // const deleteHandler = () => {
-  //   if (window.confirm("Es-tu sûre ?")) {
-  //   }
-  // };
+  const deleteHandler = () => {
+    if (window.confirm("Etes-vous sûre ?")) {
+      dispatch(deleteNote(id));
+    }
+    window.location.href = "/notes";
+  };
 
   return (
     <>
@@ -104,10 +109,10 @@ export default function NotePage() {
                 className="focus:border block w-full border border-gray-400 rounded-md p-4"
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <option value="divertissement">Divertissement</option>
-                <option value="professionnel">Professionel</option>
-                <option value="scientifique">Scientifique</option>
-                <option value="technologique">Technologique</option>
+                <option value="Divertissement">Divertissement</option>
+                <option value="Professionnel">Professionel</option>
+                <option value="Scientifique">Scientifique</option>
+                <option value="Technologique">Technologique</option>
               </select>
             </div>
             <div className="flex justify-center m-2">
@@ -120,6 +125,7 @@ export default function NotePage() {
               <input
                 type="button"
                 value="Supprimer"
+                onClick={deleteHandler}
                 className="bg-danger hover:bg-danger-hover text-white w-36 m-2 font-primary tracking-widest uppercase cursor-pointer rounded-md animate"
               />
             </div>

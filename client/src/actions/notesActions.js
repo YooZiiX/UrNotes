@@ -9,6 +9,9 @@ import {
   NOTES_UPDATE_REQUEST,
   NOTES_UPDATE_SUCCESS,
   NOTES_UPDATE_FAIL,
+  NOTES_DELETE_FAIL,
+  NOTES_DELETE_REQUEST,
+  NOTES_DELETE_SUCCESS,
 } from "../constants/notesConstants";
 
 export const listNotes = () => async (dispatch, getState) => {
@@ -116,3 +119,35 @@ export const updateNote =
       dispatch({ type: NOTES_UPDATE_FAIL, payload: message });
     }
   };
+
+export const deleteNote = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: NOTES_DELETE_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.delete(`/api/notes/${id}`, config);
+
+    dispatch({
+      type: NOTES_DELETE_SUCCESS,
+      payload: data,
+    });
+    console.log(">> DELETED!");
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.response;
+    dispatch({ type: NOTES_DELETE_FAIL, payload: message });
+  }
+};
