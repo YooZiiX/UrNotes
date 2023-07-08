@@ -142,7 +142,6 @@ export const deleteNote = (id) => async (dispatch, getState) => {
       type: NOTES_DELETE_SUCCESS,
       payload: data,
     });
-    console.log(">> DELETED!");
   } catch (error) {
     const message =
       error.response && error.response.data.message

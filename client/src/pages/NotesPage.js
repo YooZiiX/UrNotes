@@ -13,7 +13,7 @@ export default function NotesPage() {
   const dispatch = useDispatch();
 
   const noteList = useSelector((state) => state.noteList);
-  const { loading, notes, error } = noteList;
+  const { notes } = noteList;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;

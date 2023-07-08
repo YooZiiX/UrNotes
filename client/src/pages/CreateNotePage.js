@@ -19,7 +19,6 @@ export default function CreateNote() {
   const dispatch = useDispatch();
 
   const noteCreate = useSelector((state) => state.noteCreate);
-  const { loading, error, note } = noteCreate;
 
   const submitHandler = (e) => {
     e.preventDefault();
