@@ -91,7 +91,7 @@ export default function ProfilePage() {
               <input
                 type="password"
                 name="password"
-                id="email"
+                id="password"
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4 uppercase"
                 placeholder="Mot de passe"

@@ -99,7 +99,7 @@ export default function SignupPage() {
               <input
                 type="password"
                 name="password"
-                id="email"
+                id="password"
                 value={password}
                 autoComplete="off"
                 className="focus:border block w-full border border-gray-400 rounded-md p-4 uppercase"
