@@ -83,8 +83,8 @@ export default function CreateNote() {
                 <option value="">--------</option>
                 <option value="Divertissement">Divertissement</option>
                 <option value="Professionnel">Professionel</option>
-                <option value="Scientifique">Scientifique</option>
-                <option value="Technologique">Technologique</option>
+                <option value="Sciences">Scientifique</option>
+                <option value="Technologie">Technologique</option>
               </select>
             </div>
             <div className="flex justify-center m-2">
