@@ -1,21 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import Container from "../components/elements/Container";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../actions/userActions";
+import { updateUser } from "../actions/userActions";
 
 export default function ProfilePage() {
   const dispatch = useDispatch();
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   const fixFirstname = `${userInfo.firstname}`;
 
-  const [firstname, setFirstname] = useState(`${userInfo.firstname}`);
-  const [lastname, setLastname] = useState(`${userInfo.lastname}`);
-  const [email, setEmail] = useState(`${userInfo.email}`);
+  const userUpdate = useSelector((state) => state.userUpdate);
+  const { loading, error, success } = userUpdate;
+
+  const [firstname, setFirstname] = useState();
+  const [lastname, setLastname] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  useEffect(() => {
+    if (!userInfo) {
+      window.location.href = "/";
+    } else {
+      setFirstname(userInfo.firstname);
+      setLastname(userInfo.lastname);
+      setEmail(userInfo.email);
+    }
+  }, [userInfo]);
 
   const resetHandler = () => {
     setFirstname(`${userInfo.firstname}`);
@@ -28,6 +43,13 @@ export default function ProfilePage() {
   const logoutHandler = () => {
     dispatch(logout());
     window.location.href = "/";
+  };
+
+  const updateHandler = (e) => {
+    e.preventDefault();
+    if (password === confirmPassword)
+      dispatch(updateUser({ firstname, lastname, email, password }));
+    window.location.href = "/profile";
   };
 
   return (
@@ -118,6 +140,7 @@ export default function ProfilePage() {
               <input
                 type="button"
                 value="Modifier"
+                onClick={updateHandler}
                 className="bg-blue-500 hover:bg-blue-700 text-white w-36 h-12 font-primary tracking-widest uppercase cursor-pointer rounded-md animate"
               />
             </div>
