@@ -5,7 +5,7 @@ The main goal of this project is to learn about MERN technical stack.
 The aim of this project is to create a notes site with a user system.
 In other words, a CRUD system for notes and an AUTH system for users.
 
-For this project, i followed the [RoadsideCoder](https://www.youtube.com/@RoadsideCoder)'s YouTube [Playlist](https://www.youtube.com/playlist?list=PLKhlp2qtUcSYC7EffnHzD-Ws2xG-j3aYo), taking a few liberties.
+For this project, I followed the [RoadsideCoder](https://www.youtube.com/@RoadsideCoder)'s YouTube [Playlist](https://www.youtube.com/playlist?list=PLKhlp2qtUcSYC7EffnHzD-Ws2xG-j3aYo), taking a few liberties.
 
 So, what is MERN ?
 
