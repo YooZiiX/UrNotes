@@ -9,7 +9,7 @@ For this project, I followed the [RoadsideCoder](https://www.youtube.com/@Roadsi
 
 So, what is MERN ?
 
-## Technical Stack :
+## Technical Stack
 
 MERN is a technical stack that uses the following technologies :
 
@@ -32,3 +32,17 @@ MERN is a technical stack that uses the following technologies :
 ### Other Tools :
 
 > - [Postman](https://www.postman.com/) : API platform for building and using APIs.
+
+## Various pages
+
+### Landing page :
+
+A ''landing page'' should make users want to use the application.
+However, I wanted to focus on the implementation of ''functionalities''.
+Firstly, by registering and logging in users, and modifying their information.
+
+### Registering / logging & Profile pages :
+
+Registering and logging pages are pages with form to create user in the MongoDB database, update those information through ProfilePage, and finally retrieve information to log the user.
+
+### CRUD pages :
