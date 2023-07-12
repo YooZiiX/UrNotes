@@ -35,20 +35,20 @@ MERN is a technical stack that uses the following technologies :
 
 ## Various pages
 
-### Landing page :
+### - Landing page :
 
 A **landing page** should make users want to use the application.
 However, I wanted to focus on the implementation of **functionalities**.
 
 Firstly, by **registering** and **logging** in users, and **updating** their information.
 
-### Registering / logging & Profile pages :
+### - Registering / logging & Profile pages :
 
 **Registering** and **logging pages** are pages with form to **create** user in the MongoDB database, **update** those information through ProfilePage, and finally **retrieve** information to log the user.
 
 Secondly, **CRUD** functionality for the notes model.
 
-### CRUD pages :
+### - CRUD pages :
 
 First of all, what's CRUD system ?
 
