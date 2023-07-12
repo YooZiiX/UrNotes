@@ -37,8 +37,8 @@ MERN is a technical stack that uses the following technologies :
 
 ### Landing page :
 
-A ''landing page'' should make users want to use the application.
-However, I wanted to focus on the implementation of ''functionalities''.
+A **landing page** should make users want to use the application.
+However, I wanted to focus on the implementation of **functionalities**.
 Firstly, by registering and logging in users, and modifying their information.
 
 ### Registering / logging & Profile pages :
