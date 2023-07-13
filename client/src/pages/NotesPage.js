@@ -35,12 +35,6 @@ export default function NotesPage() {
     <div className="">
       <Header />
       <Container>
-        <div className="w-full flex justify-center items-center m-6">
-          <h1 className="font-primary text-4xl">
-            {`${userInfo.firstname}`}, voilà vos <strong>Notes</strong>
-            <span className="text-danger">:</span>
-          </h1>
-        </div>
         <div className="flex justify-center m-6">
           <form>
             <input
@@ -53,6 +47,19 @@ export default function NotesPage() {
               onChange={(e) => setSearch(e.target.value)}
             />
           </form>
+        </div>
+        <div className="w-full flex justify-center m-6">
+          <Link to="/createnote">
+            <button className="bg-blue-500 hover:bg-blue-700 rounded-md px-4 py-2 uppercase shadow-md text-white text-xl font-medium animate">
+              Créer une nouvelle Note
+            </button>
+          </Link>
+        </div>
+        <div className="w-full flex justify-center items-center m-6">
+          <h1 className="font-primary text-4xl">
+            {`${userInfo.firstname}`}, voilà vos <strong>Notes</strong>
+            <span className="text-danger">:</span>
+          </h1>
         </div>
         <div className="w-full flex justify-center m-6">
           <div className="grid grid-cols-2 gap-4">
@@ -73,13 +80,6 @@ export default function NotesPage() {
                 </Link>
               ))}
           </div>
-        </div>
-        <div className="w-full flex justify-center m-6">
-          <Link to="/createnote">
-            <button className="bg-blue-500 hover:bg-blue-700 rounded-md px-4 py-2 uppercase shadow-md text-white text-xl font-medium animate">
-              Créer une nouvelle Note
-            </button>
-          </Link>
         </div>
       </Container>
       <Footer />

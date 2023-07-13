@@ -14,7 +14,7 @@ export const Footer = () => {
         <div className="text-base">
           Developped by{" "}
           <span className="text-lg">
-            Jérémy <strong>LUCAS</strong>
+            J. <strong>L</strong>
           </span>
           <span className="text-danger text-lg">.</span>
         </div>
