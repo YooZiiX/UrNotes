@@ -71,7 +71,7 @@ First of all, what's CRUD system ?
 
 On this page, we can find all the notes of the logged-in user, as well as a filter function by name.
 
-## ENV File example
+## ENV File example (./.env)
 
 > PORT = 5000
 >
