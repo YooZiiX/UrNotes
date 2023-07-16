@@ -41,7 +41,7 @@ A **landing page** should make users want to use the application.
 However, I wanted to focus on the implementation of **functionalities**.
 
 ![Landing page](./assets/landing.PNG "Landing page")
-**_Picture 1 :_** Landing page
+**_Picture 1 :_** Landing page.
 
 Firstly, by **registering** and **logging** in users, and **updating** their information.
 
@@ -50,10 +50,10 @@ Firstly, by **registering** and **logging** in users, and **updating** their inf
 **Registering** and **logging pages** are pages with form to **create** user in the MongoDB database, **update** those information through ProfilePage, and finally **retrieve** information to log the user.
 
 ![Register page](./assets/signup.PNG "Register page")
-**_Picture 2 :_** Register page
+**_Picture 2 :_** Register page.
 
 ![Login page](./assets/login.PNG "Login page")
-**_Picture 3 :_** Login page
+**_Picture 3 :_** Login page.
 
 Secondly, **CRUD** functionality for the notes model.
 
@@ -64,8 +64,9 @@ First of all, what's CRUD system ?
 **CRUD**, which means **C**reate **R**etrieve **U**pdate **D**elete, are the main functions for managing a model.
 
 ![Profil page](./assets/profile.PNG "Profil page / Update page")
-**_Picture 4 :_** Profil page
+**_Picture 4 :_** Profil page.
 
 ![Notes retrieve page](./assets/notes.PNG "Notes retrieve page")
-**_Picture 5 :_** Notes page
+**_Picture 5 :_** Notes page.
+
 On this page, we can find all the notes of the logged-in user, as well as a filter function by name.
