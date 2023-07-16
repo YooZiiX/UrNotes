@@ -70,3 +70,10 @@ First of all, what's CRUD system ?
 **_Picture 5 :_** Notes page.
 
 On this page, we can find all the notes of the logged-in user, as well as a filter function by name.
+
+## ENV File example
+
+> PORT = 5000
+> MONGO_URI = _link_
+> NODE_ENV = development
+> JWT_SECRET = _word_
