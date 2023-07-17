@@ -1,6 +1,6 @@
 # UrNotes Application using MERN Stack
 
-The main goal of this project is to learn about MERN technical stack by building a Full-Stack Notes application.
+The main goal of this project is to learn about **MERN technical stack** by building a **Full-Stack Notes application**.
 
 The aim of this project is to create a notes site with a user system.
 In other words, a CRUD system for notes and an AUTH system for users.
