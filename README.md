@@ -75,8 +75,8 @@ On this page, we can find all the notes of the logged-in user, as well as a filt
 
 > PORT = 5000
 >
-> MONGO*URI = \_link*
+> MONGO_URI = _**link**_
 >
 > NODE_ENV = development
 >
-> JWT*SECRET = \_word*
+> JWT_SECRET = _**word**_
